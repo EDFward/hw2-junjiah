@@ -3,6 +3,7 @@ package edu.cmu.andrew.junjiah.hw2_11791;
 import java.util.Iterator;
 
 import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_component.AnalysisComponent_ImplBase;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
@@ -15,7 +16,7 @@ import com.aliasi.util.AbstractExternalizable;
 import edu.cmu.deiis.types.Annotation;
 
 /**
- * A confidence chunker from NER tutorial from LingPipe. Used external model to chunk genes.
+ * A confidence chunker from LingPipe library. Used external model to chunk genes.
  * 
  * @author junjiah
  */
@@ -31,12 +32,11 @@ public class ConfidenceChunkGeneAnnotator extends JCasAnnotator_ImplBase {
    */
   private ConfidenceChunker chunker;
 
-  /*
-   * (non-Javadoc)
+  /**
    * 
    * @see AnalysisComponent_ImplBase#initialize(org.apache.uima.UimaContext)
    * 
-   * Initialize the confidence chunker using the provided external model file.
+   *      Initialize the confidence chunker using the provided external model file.
    */
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
@@ -50,10 +50,11 @@ public class ConfidenceChunkGeneAnnotator extends JCasAnnotator_ImplBase {
     }
   };
 
-  /*
-   * (non-Javadoc)
+  /**
    * 
    * @see JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+   * 
+   *      Read a document/sentence, do chunking and store the probability to the annotation.
    */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {

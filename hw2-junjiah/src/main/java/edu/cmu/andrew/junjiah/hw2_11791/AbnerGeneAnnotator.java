@@ -10,6 +10,7 @@ import abner.Tagger;
 import edu.cmu.deiis.types.Annotation;
 
 /**
+ * An annotator based on ABNER to tag proteins as well as genes.
  * 
  * @author junjiah
  *
@@ -17,15 +18,21 @@ import edu.cmu.deiis.types.Annotation;
 public class AbnerGeneAnnotator extends JCasAnnotator_ImplBase {
 
   /**
-   * Named tagger for DNA/RNA/Protein.
+   * Gene tagger for DNA/RNA/Protein.
    */
   private Tagger tagger;
 
+  /**
+   * Simply initialize the ABNER tagger.
+   */
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     tagger = new Tagger();
   }
 
+  /**
+   * Read a document/sentence, then tag the NE. Ignore those cannot match to original document text.
+   */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     String docText = aJCas.getDocumentText();

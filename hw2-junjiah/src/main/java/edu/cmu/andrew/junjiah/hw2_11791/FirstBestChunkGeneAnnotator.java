@@ -1,6 +1,7 @@
 package edu.cmu.andrew.junjiah.hw2_11791;
 
 import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_component.AnalysisComponent_ImplBase;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
@@ -13,8 +14,8 @@ import com.aliasi.util.AbstractExternalizable;
 import edu.cmu.deiis.types.Annotation;
 
 /**
- * A First-Best Named Entity Annotator from NER tutorial from LingPipe. Used external model to chunk
- * named entities. Faster and more accurate than the provided NER.
+ * A First-Best Named Entity Annotator from LingPipe library. Used external model to chunk named
+ * entities. Faster and more accurate than the provided NER.
  * 
  * @author junjiah
  *
@@ -31,12 +32,11 @@ public class FirstBestChunkGeneAnnotator extends JCasAnnotator_ImplBase {
    */
   private Chunker chunker;
 
-  /*
-   * (non-Javadoc)
+  /**
    * 
    * @see AnalysisComponent_ImplBase#initialize(org.apache.uima.UimaContext)
    * 
-   * Initialize the chunker using the provided external model file.
+   *      Initialize the chunker using the provided external model file.
    */
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
@@ -50,10 +50,12 @@ public class FirstBestChunkGeneAnnotator extends JCasAnnotator_ImplBase {
     }
   };
 
-  /*
-   * (non-Javadoc)
+  /**
    * 
    * @see JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+   * 
+   *      Read a document/sentence and chunk it. Store every chunk as an annotation with confidence
+   *      1.0d.
    */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {

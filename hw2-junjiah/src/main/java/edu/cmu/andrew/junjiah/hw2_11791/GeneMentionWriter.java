@@ -22,7 +22,7 @@ import edu.cmu.deiis.types.Annotation;
 import edu.cmu.deiis.types.DocumentId;
 
 /**
- * Writes annotation results to a output file conforming to the format specified in the writeup.
+ * Wrote annotation results to a output file conforming to the format specified in the writeup.
  * 
  * @author junjiah
  *
