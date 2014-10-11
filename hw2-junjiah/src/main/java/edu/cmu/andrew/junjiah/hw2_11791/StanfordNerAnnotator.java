@@ -3,7 +3,6 @@ package edu.cmu.andrew.junjiah.hw2_11791;
 import java.util.List;
 
 import org.apache.uima.UimaContext;
-import org.apache.uima.analysis_component.AnalysisComponent_ImplBase;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
@@ -29,10 +28,7 @@ public class StanfordNerAnnotator extends JCasAnnotator_ImplBase {
   public static final String PARAM_MODELFILE = "ModelFile";
 
   /**
-   * 
-   * @see AnalysisComponent_ImplBase#initialize(org.apache.uima.UimaContext)
-   * 
-   *      Initialize the classifier from PARAM_MODELFILE.
+   * Initialize the classifier from PARAM_MODELFILE.
    */
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
