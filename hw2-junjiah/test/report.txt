@@ -1,2 +1,1 @@
-hw2-junjiah ERROR running '/Users/hejunjia1911/.m2/repository/edu/cmu/lti/11791/f14/hw2//hw2-junjiah/0.0.1-SNAPSHOT/hw2-junjiah-0.0.1-SNAPSHOT.pom'
-hw2-junjiah 0.0.1-SNAPSHOT SUCCESS F1 Score: 0.0393973273705
+hw2-junjiah 0.0.2-SNAPSHOT SUCCESS F1 Score: 0.69712921589
