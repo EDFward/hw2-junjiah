@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 ***************************************************************
+	 * Licensed to the Apache Software Foundation (ASF) under one
+	 * or more contributor license agreements.  See the NOTICE file
+	 * distributed with this work for additional information
+	 * regarding copyright ownership.  The ASF licenses this file
+	 * to you under the Apache License, Version 2.0 (the
+	 * "License"); you may not use this file except in compliance
+	 * with the License.  You may obtain a copy of the License at
+         *
+	 *   http://www.apache.org/licenses/LICENSE-2.0
+	 * 
+	 * Unless required by applicable law or agreed to in writing,
+	 * software distributed under the License is distributed on an
+	 * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+	 * KIND, either express or implied.  See the License for the
+	 * specific language governing permissions and limitations
+	 * under the License.
+	 ***************************************************************
+   -->
+<!-- A simple collection reader that reads text files from a file in the
+     filesystem.-->
+<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+    <implementationName>edu.cmu.andrew.junjiah.hw2_11791.GeneDocumentReader</implementationName>
+    <processingResourceMetaData>
+        <name>Gene Document Collection Reader</name>
+        <description/>
+        <version>1.0</version>
+        <vendor>Junjia He</vendor>
+        <configurationParameters>
+            <configurationParameter>
+                <name>InputFile</name>
+                <description>Desired input file for gene mentioning</description>
+                <type>String</type>
+                <multiValued>false</multiValued>
+                <mandatory>true</mandatory>
+            </configurationParameter>
+        </configurationParameters>
+		<configurationParameterSettings>
+		    <nameValuePair>
+        <name>InputFile</name>
+        <value>
+          <string>hw2.in</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+
+        <!-- Type System of CASes returned by this Collection Reader -->
+
+        <typeSystemDescription>
+        <types>
+        <typeDescription>
+          <name>edu.cmu.deiis.types.DocumentId</name>
+          <description>Indicates the document ID for every document i.e. line in the source file</description>
+          <supertypeName>uima.tcas.Annotation</supertypeName>
+        <features>
+            <featureDescription>
+              <name>Id</name>
+              <description>Actual ID for the document.</description>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+          </features>
+        </typeDescription>
+      </types>
+    </typeSystemDescription>
+
+        <capabilities>
+          	<capability>
+          		<inputs/>
+          		<outputs/>
+          	<languagesSupported/>
+      </capability>
+        </capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+			<outputsNewCASes>true</outputsNewCASes>
+		</operationalProperties>		
+    </processingResourceMetaData>
+<resourceManagerConfiguration/>
+</collectionReaderDescription>

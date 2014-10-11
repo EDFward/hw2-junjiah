@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="FirstBestChunkGeneAnnotatorDescriptor">
+      <import location="descriptors/annotators/FirstBestChunkGeneAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AbnerGeneAnnotatorDescriptor">
+      <import location="descriptors/annotators/AbnerGeneAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="StanfordNerAnnotatorDescriptor">
+      <import location="descriptors/annotators/StanfordNerAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ConfidenceChunkGeneAnnotatorDescriptor">
+      <import location="descriptors/annotators/ConfidenceChunkGeneAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>AggregateGeneAnnotator</name>
+    <description/>
+    <version>1.0</version>
+    <vendor>Junjia He</vendor>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>FirstBestChunkGeneAnnotatorDescriptor</node>
+        <node>AbnerGeneAnnotatorDescriptor</node>
+        <node>StanfordNerAnnotatorDescriptor</node>
+        <node>ConfidenceChunkGeneAnnotatorDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
